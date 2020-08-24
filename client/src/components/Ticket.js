@@ -37,7 +37,7 @@ x = e.labels
 <h3>{e.title}</h3>
 <p>{e.content}</p>
 <p>By {e.userEmail} | {date.toISOString().substr(0, 19).replace('T', ', ')}
-      {Number(date.toISOString().substr(11, 2)) > 11 ? 'PM' : 'AM'}
+      {Number(date.toISOString().substr(11, 2)) > 11 ? ' PM' : ' AM'}
       {x.map(e => <p className="label">{e}</p>)}
 </p>
 </div>
