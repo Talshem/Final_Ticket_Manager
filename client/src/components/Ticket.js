@@ -3,9 +3,10 @@ import axios from 'axios';
 import { set } from 'object-path';
 
 
-function Ticket() {
-const [list, setList] = useState(0)
-
+function Ticket(props) {
+const [list, setList] = useState('')
+const [length, setLength] = useState(0)
+const [hidden, setHidden] = useState(0)
 
   useEffect(() => {
   async function fetchData() {
@@ -13,24 +14,28 @@ const [list, setList] = useState(0)
   const array = data.data
   makeTickets(array)
   }
-  fetchData()}, );
+  fetchData()}, []);
+
+
+function handleHidden(e){
+document.getElementById(e).style.display = 'none'
+setHidden(hidden => hidden + 1)
+}
 
 const makeTickets = (array) => {
-
 const tickets = array.map((e) => {
 let date = new Date(e.creationTime)
 let x = [];
-
 if(e.labels){
 x = e.labels
 }
 
  return  (
-<div className="ticket" key={e.id}>
+<div className="ticket" key={e.id} id={e.id}>
+<button className="hide" onClick={() => handleHidden(e.id)}> Hide </button>
 <h3>{e.title}</h3>
 <p>{e.content}</p>
-<p>By {e.userEmail} |
-      {date.toISOString().substr(0, 19).replace('T', ', ')}
+<p>By {e.userEmail} | {date.toISOString().substr(0, 19).replace('T', ', ')}
       {Number(date.toISOString().substr(11, 2)) > 11 ? 'PM' : 'AM'}
       {x.map(e => <p className="label">{e}</p>)}
 </p>
@@ -39,7 +44,11 @@ x = e.labels
 
 })
 setList(tickets)
+setLength(tickets.length)
 }
+
+props.length(length)
+props.hidden(hidden)
 
   return (
     <main>
