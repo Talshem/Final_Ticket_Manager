@@ -6,28 +6,34 @@ const [hidden, setHidden] = useState(-1)
 
   useEffect(() => {
  function hiddenUpdate() {
- setHidden(e => e + 1)
+setHidden(props.hidden)
 } hiddenUpdate()}, [props.hidden]);
+
+
 
 function resetDisplay(){
 let elements = document.getElementsByClassName('ticket')
 for (let i=0; i < elements.length; i++){
 elements[i].style.display = 'block';
 }
-setHidden(0)
+props.reset()
 }
 
-const hiddenTickets = '( ' + (hidden > 1 ? hidden + ' hidden tickets - ' : hidden + ' hidden ticket - ')
-const restore = <button onClick={() => resetDisplay()} className="restore">restore</button>
+const singular = ' hidden ticket - '
+const plural = ' hidden tickets - '
+const hiddenBar = (hidden > 1 ? plural : singular)
+const restore = <button id="restoreHideTickets" onClick={() => resetDisplay()} className="restore">restore</button>
 
-
+const resultsBar = <span className="results">
+<span id="hideTicketsCounter"> ( {hidden}</span>
+{hidden > 0 ? hiddenBar : ''}
+{restore} )
+</span>
 
   return (
     <div style={{color: 'grey', textAlign: 'center'}}>
-Showing {props.length} results <span className="results">{hidden > 0 ? hiddenTickets : ''}
-                                                        {hidden > 0 ? restore : ''}
-                                                        {hidden > 0 ? ' )' : ''}
-                               </span>
+Showing {props.length} results 
+{hidden > 0 ? resultsBar : ''}
     </div>
   );
 }

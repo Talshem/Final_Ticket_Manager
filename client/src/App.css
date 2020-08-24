@@ -21,7 +21,7 @@ padding: 10px 10px 10px 10px;
   text-align: center;
 }
 
-.hide{
+.hideTicketButton{
   font-weight: bolder;
   color:white;
   margin: 10px 10px 10px 10px;
@@ -49,6 +49,11 @@ cursor: pointer;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+}
+
+button:active{
+    outline: none;
+    border: none;
 }
 
 .results{

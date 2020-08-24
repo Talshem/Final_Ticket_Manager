@@ -7,9 +7,15 @@ import './App.css';
 function App(props) {
 const [length, setLength] = useState(0)
 const [hidden, setHidden] = useState(0)
+const [reset, setReset] = useState(false)
 
 function handleHidden(e){
+setReset(false)
 setHidden(e)
+}
+
+function resetHidden(){
+setReset(true)
 }
 
 function handleLength(e){
@@ -18,8 +24,8 @@ setLength(e)
 
   return (
     <main>
-<Counter length={length} hidden={hidden}/>
-<Ticket length={(e) => handleLength(e)} hidden={(e) => handleHidden(e)}/>
+<Counter length={length} hidden={hidden} reset={() => resetHidden()}/>
+<Ticket length={(e) => handleLength(e)} hidden={(e) => handleHidden(e)}  reset={reset}/>
     </main>
   );
 }
