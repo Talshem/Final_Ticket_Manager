@@ -17,6 +17,7 @@ const [hidden, setHidden] = useState(0)
   fetchData()}, []);
 
 
+
 function handleHidden(e){
 document.getElementById(e).style.display = 'none'
 setHidden(hidden => hidden + 1)
@@ -49,6 +50,8 @@ setLength(tickets.length)
 
 props.length(length)
 props.hidden(hidden)
+
+
 
   return (
     <main>

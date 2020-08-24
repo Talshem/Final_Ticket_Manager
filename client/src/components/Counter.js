@@ -2,21 +2,31 @@ import React, {useEffect, useState} from 'react';
 
 
 function Counter(props) {
-const [hidden, setHidden] = useState(0)
+const [hidden, setHidden] = useState(-1)
 
-useEffect(() => { function passData(){
-setHidden(props.hidden)
+  useEffect(() => {
+ function hiddenUpdate() {
+ setHidden(e => e + 1)
+} hiddenUpdate()}, [props.hidden]);
+
+function resetDisplay(){
+let elements = document.getElementsByClassName('ticket')
+for (let i=0; i < elements.length; i++){
+elements[i].style.display = 'block';
 }
-passData()}, []);
+setHidden(0)
+}
 
-const hiddenTickets = '( ' + (props.hidden > 1 ? props.hidden + ' hidden tickets - ' : props.hidden + ' hidden ticket - ')
-const restore = <button className="restore">restore</button>
+const hiddenTickets = '( ' + (hidden > 1 ? hidden + ' hidden tickets - ' : hidden + ' hidden ticket - ')
+const restore = <button onClick={() => resetDisplay()} className="restore">restore</button>
+
+
 
   return (
-    <div style={{color: 'grey'}}>
-Showing {props.length} results <span className="results">{props.hidden > 0 ? hiddenTickets : ''}
-                                                        {props.hidden > 0 ? restore : ''}
-                                                        {props.hidden > 0 ? ' )' : ''}
+    <div style={{color: 'grey', textAlign: 'center'}}>
+Showing {props.length} results <span className="results">{hidden > 0 ? hiddenTickets : ''}
+                                                        {hidden > 0 ? restore : ''}
+                                                        {hidden > 0 ? ' )' : ''}
                                </span>
     </div>
   );
