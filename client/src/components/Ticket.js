@@ -11,42 +11,9 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Modal from 'react-modal';
+import PopUp from './PopUp';
 import Undone from '../image.png';
 import Done from '../imagedone.png';
-
-function PopUp(props) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const showAll = async () => {
-      if (props.count !== count) {
-        setIsOpen(true);
-        setCount(props.count);
-      }
-    }; showAll();
-  });
-
-  function handleClose() {
-    setIsOpen(false);
-  }
-  return (
-    <div>
-      <Modal
-        className="modal"
-        isOpen={isOpen}
-      >
-        <h4>{props.title}</h4>
-        <div>{props.content}</div>
-        <br />
-        <button onClick={() => handleClose()}>Close [x]</button>
-      </Modal>
-    </div>
-  );
-}
-
-Modal.setAppElement('#root');
 
 function Ticket(props) {
   const [list, setList] = useState('');
