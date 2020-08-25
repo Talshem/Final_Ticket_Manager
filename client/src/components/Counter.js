@@ -33,6 +33,7 @@ function Counter(props) {
     <span className="results">
       {' '}
       (
+      {' '}
       <span id="hideTicketsCounter">{hidden}</span>
       {hidden > 0 ? hiddenBar : ''}
       {restore}
