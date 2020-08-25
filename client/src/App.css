@@ -8,6 +8,13 @@ height: 150px;
 text-shadow: 5px 5px 1px rgb(153, 153, 153);
 }
  
+.loading{
+position: absolute;
+top:350px;
+font-size: 80px;
+left:32%;
+}
+
 .showing{
 text-align: center;
 background: #4d6d85;

@@ -21,7 +21,8 @@ function Ticket(props) {
   const [hidden, setHidden] = useState(0);
   const [search, setSearch] = useState('');
   const [fresh, setFresh] = useState(0);
-
+  const [loading, setLoading] = useState(true);
+  const [dots, setDots] = useState('Loading Tickets');
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const [count, setCount] = useState(0);
@@ -34,11 +35,27 @@ function Ticket(props) {
     if (!e.done) {
       await axios.post(`/api/tickets/${e.id}/done`);
       setFresh((e) => e + 1);
+      setLoading(false);
     } else {
       await axios.post(`/api/tickets/${e.id}/undone`);
       setFresh((e) => e + 1);
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots((dots) => `${dots} .`);
+    }, 200);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots((dots) => 'Loading Tickets');
+    }, 800);
+    return () => clearInterval(interval);
+  }, []);
 
   const makeTickets = (array) => {
     const tickets = array.map((e) => {
@@ -111,6 +128,9 @@ function Ticket(props) {
     <div>
       <div className="input">
         <input id="searchInput" placeholder="Search tickets..." onChange={(event) => { setSearch(event.target.value); }} />
+      </div>
+      <div className="loading">
+        {loading ? dots : ''}
       </div>
       <div className="grid-container">
         {list}
