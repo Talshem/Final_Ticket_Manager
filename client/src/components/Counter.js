@@ -12,9 +12,9 @@ setHidden(props.hidden)
 
 
 function resetDisplay(){
-let elements = document.getElementsByClassName('ticket')
-for (let i=0; i < elements.length; i++){
-elements[i].style.display = 'block';
+let elements = document.getElementsByClassName('hiddenTicket')
+for (let i = elements.length - 1; i >= 0; i--){
+elements[i].className = 'ticket'    
 }
 props.reset()
 }
@@ -24,8 +24,8 @@ const plural = ' hidden tickets - '
 const hiddenBar = (hidden > 1 ? plural : singular)
 const restore = <button id="restoreHideTickets" onClick={() => resetDisplay()} className="restore">restore</button>
 
-const resultsBar = <span className="results">
-<span id="hideTicketsCounter"> ( {hidden}</span>
+const resultsBar = <span className="results">  (
+<span id="hideTicketsCounter">{hidden}</span>
 {hidden > 0 ? hiddenBar : ''}
 {restore} )
 </span>
@@ -37,9 +37,6 @@ Showing {props.length} results
     </div>
   );
 }
-
-
-
 
 
 

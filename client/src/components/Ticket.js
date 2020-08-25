@@ -23,7 +23,7 @@ setHidden(0)
 
 
 function handleHidden(e){
-document.getElementById(e).style.display = 'none'
+document.getElementById(e).className = 'hiddenTicket'
 setHidden(hidden => hidden + 1)
 }
 
@@ -42,7 +42,7 @@ x = e.labels
 <p>{e.content}</p>
 <p>By {e.userEmail} | {date.toISOString().substr(0, 19).replace('T', ', ')}
       {Number(date.toISOString().substr(11, 2)) > 11 ? ' PM' : ' AM'}
-      {x.map(e => <p className="label">{e}</p>)}
+      {x.map(e => <span className="label">{e}</span>)}
 </p>
 </div>
 );
