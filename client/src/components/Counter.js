@@ -31,7 +31,7 @@ const resultsBar = <span className="results">  (
 </span>
 
   return (
-    <div style={{color: 'grey', textAlign: 'center'}}>
+    <div className="showing">
 Showing {props.length} results 
 {hidden > 0 ? resultsBar : ''}
     </div>

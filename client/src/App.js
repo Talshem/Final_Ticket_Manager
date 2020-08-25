@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import Ticket from './components/Ticket'
 import Counter from './components/Counter'
+import Header from './components/Header'
 import './App.css';
 
 function App(props) {
@@ -24,6 +25,7 @@ setLength(e)
 
   return (
     <main>
+<Header/>
 <Counter length={length} hidden={hidden} reset={() => resetHidden()}/>
 <Ticket length={(e) => handleLength(e)} hidden={(e) => handleHidden(e)}  reset={reset}/>
     </main>
