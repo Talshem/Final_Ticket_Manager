@@ -100,9 +100,11 @@ function Ticket(props) {
           <p onClick={() => showMore(e.title, e.content)} style={{ color: '#397eaf', fontWeight: 'bold', cursor: 'pointer' }}> See more...</p>
           <p>
             By
-            {e.userEmail}
+            {' '}
+            { e.userEmail}
             {' '}
             |
+            {' '}
             {date.toISOString().substr(0, 19).replace('T', ', ')}
             {Number(date.toISOString().substr(11, 2)) > 11 ? ' PM' : ' AM'}
           </p>
