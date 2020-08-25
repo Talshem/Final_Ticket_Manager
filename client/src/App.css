@@ -1,31 +1,80 @@
 
-  .ticket{
-    color:#20445E;
-box-shadow: 0px 0px 5px grey;
-padding: 10px 10px 10px 10px;
-    background:#FDFBFD;
-    border-radius: 10px;
-    margin: 25px 50px 25px 50px;
+ .modal{
+  padding:20px;
+    width:800px;
+    margin-left: 50%;
+    margin-top: 20%;
+    transform: translate(-50%, -50%);
+    border-Radius: 10px;
+    background: #FDFBFD;
+    color: #20445E;
+    border:2px solid white;
+    box-shadow:0px 0px 5px #000000;
+}
+ 
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: #F2F7FB;
 }
 
+.ticket{
+     line-height: 15px;
+    width: 93%;
+height: 225px;
+    color:#20445E;
+box-shadow: 0px 0px 5px grey;
+padding: 1px 10px 10px 10px;
+    background:#FDFBFD;
+    border-radius: 10px;
+    margin: 20px 0px 10px 20px;
+}
+
+.modal button{
+margin-top: -5px;
+color: grey;
+float: right;
+cursor: pointer;
+ background: none!important;
+  border: none;
+  padding: 0!important;
+  font-weight: bolder;
+}
+
+.modal button:hover{
+color:#20445E
+}
+
+
+ .content{
+text-overflow: ellipsis;
+line-height: normal;
+overflow: hidden;
+width: 500px;
+height: 65px;
+ }  
+ 
+
 .label{
+  position: relative;
+  margin-bottom:50px;
   background:#DAEFFE;
   color:#20445E;
-  margin-top:0px;
   font-weight: 500;
   border: solid #b6e1ff 1px;
   border-radius: 5px;
   margin-right:10px;
   float: right;
-  padding: 1px 10px 3px 10px;
+  padding: 5px 10px 8px 10px;
   text-align: center;
 }
 
 .hideTicketButton{
+position: absolute;
   font-weight: bolder;
   color:white;
-  margin: 10px 10px 10px 10px;
-  float: right;
+margin-top: 0.5%;
+margin-left: 44.5%;
 cursor: pointer;
  background: none!important;
   border: none;
