@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/no-extraneous-dependencies */

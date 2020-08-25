@@ -35,11 +35,9 @@ function Ticket(props) {
     if (!e.done) {
       await axios.post(`/api/tickets/${e.id}/done`);
       setFresh((e) => e + 1);
-      setLoading(false);
     } else {
       await axios.post(`/api/tickets/${e.id}/undone`);
       setFresh((e) => e + 1);
-      setLoading(false);
     }
   };
 
@@ -52,7 +50,7 @@ function Ticket(props) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDots((dots) => 'Loading Tickets');
+      setDots(() => 'Loading Tickets');
     }, 800);
     return () => clearInterval(interval);
   }, []);
@@ -107,6 +105,7 @@ function Ticket(props) {
     const fetchData = async () => {
       const { data } = await axios.get(`/api/tickets?searchText=${search}`);
       makeTickets(data);
+      setLoading(false);
     }; fetchData();
   }, [fresh, search]);
 

@@ -108,6 +108,7 @@ describe(projectName, () => {
     let currentCounter = await (await hideTicketsCounter.getProperty('innerText')).jsonValue();
     expect(currentCounter).toBe('1')
 
+    await page.hover('.ticket');
     await page.click('.ticket .hideTicketButton');
 
     elementsAfterHide = await page.$$('.ticket');
