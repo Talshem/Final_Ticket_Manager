@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { set } from 'object-path';
 import Modal from 'react-modal';
+import Undone from '../image.png';
+import Done from '../imagedone.png';
 
 function PopUp(props){
   const [isOpen,setIsOpen] = useState(false);
@@ -42,10 +43,12 @@ const [list, setList] = useState('')
 const [length, setLength] = useState(0)
 const [hidden, setHidden] = useState(0)
 const [search, setSearch] = useState('')
+const [fresh, setFresh] = useState(0)
 
 const [content, setContent] = useState('')
 const [title, setTitle] = useState('')
 const [count, setCount] = useState(0)
+
 
 if(props.reset && hidden !== 0){
 setHidden(0)
@@ -55,7 +58,21 @@ setHidden(0)
   const fetchData = async () => {
   const { data } = await axios.get(`/api/tickets?searchText=${search}`);
   makeTickets(data)
-  }; fetchData()}, [search]);
+  }; fetchData()}, [fresh, search]);
+
+
+ const markDone = async (e) => {
+  if(!e.done){
+  await axios.post(`/api/tickets/${e.id}/done`);
+  setFresh(e => e + 1)
+  }
+  else{
+await axios.post(`/api/tickets/${e.id}/undone`);
+  setFresh(e => e + 1)
+  }
+  };
+  
+
 
 
 function handleHidden(e){
@@ -77,8 +94,11 @@ if(e.labels){
 x = e.labels
 }
 
+const background = (e.done ? Done : Undone)
+const color = (e.done ? 'red' : 'green')
+
  return  (
-<div className="ticket" key={e.id} id={e.id}>
+<div style={{backgroundImage:`url(${background})`}}className="ticket" key={e.id} id={e.id}>
 <button className="hideTicketButton" onClick={() => handleHidden(e.id)}> Hide </button>
 <h4 className="title">{e.title}</h4>
 <p className="content">{e.content}</p>
@@ -86,6 +106,7 @@ x = e.labels
 <p>By {e.userEmail} | {date.toISOString().substr(0, 19).replace('T', ', ')}
       {Number(date.toISOString().substr(11, 2)) > 11 ? ' PM' : ' AM'}
 </p>
+<p style={{cursor:'pointer', color:color, marginLeft:'550px'}} onClick={() => markDone(e)}>{e.done ? '✗ Undone' : '✓ Done'}</p>
 <div className="labelGrid">{x.map(e => <span className="label">{e}</span>)} </div>
 </div>
 );

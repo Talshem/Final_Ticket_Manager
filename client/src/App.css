@@ -11,7 +11,6 @@ text-shadow: 5px 5px 1px rgb(153, 153, 153);
  }
  
 .showing{
-  background-image:url('showing.png');
   text-align: center;
   background: #4d6d85;
   padding-top:5px;
@@ -53,7 +52,6 @@ margin-left: 20px;
 }
 
 .ticket{
-background-image: url('images.png');
 line-height: 15px;
 background-repeat: no-repeat;
 width: 710px;
@@ -99,19 +97,20 @@ height: 65px;
 .labelGrid{
   display: grid;
   grid-template-columns: auto;
-margin-top: -150px;
-float: right;
-margin-right:50px
+margin-top: -200px;
+margin-right:60px;
+margin-left:540px;
 }
 .label{
   position: relative;
-  background:#dac4a3;
-  color:#a58b6d;
+  background:#ececec;
+  color:#999999;
   font-weight: 500;
-  border: solid #bd9f7d 1px;
+  border: solid #999999 1px;
   border-radius: 5px;
+  
   margin-bottom:20px;
-  margin-right:10px;
+  
   padding: 5px 10px 8px 10px;
   text-align: center;
 }
@@ -119,7 +118,6 @@ margin-right:50px
 .hideTicketButton{
 position: absolute;
   font-weight: bolder;
-  color:rgb(249,244,225);
 margin-top: 2%;
 margin-left: 80%;
 cursor: pointer;
@@ -127,10 +125,13 @@ cursor: pointer;
   border: none;
   padding: 0!important;
     transition: 0.2s;
+            opacity: 0;
 }
 
-.ticket:hover > button {
-    color: grey;
+.ticket:hover > .hideTicketButton {
+       opacity: 1.0;
+       color:grey;
+        filter: alpha(opacity=100);
 }
 
 .restore{
