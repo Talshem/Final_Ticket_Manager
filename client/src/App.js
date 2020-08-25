@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import Ticket from './components/Ticket'
 import Counter from './components/Counter'
+import Search from './components/Search'
 import './App.css';
 
 function App(props) {

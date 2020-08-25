@@ -7,19 +7,17 @@ function Ticket(props) {
 const [list, setList] = useState('')
 const [length, setLength] = useState(0)
 const [hidden, setHidden] = useState(0)
+const [search, setSearch] = useState('')
 
 if(props.reset && hidden !== 0){
 setHidden(0)
 }
 
   useEffect(() => {
-  async function fetchData() {
-  const data = await axios.get('/api/tickets');
-  const array = data.data
-  makeTickets(array)
-  }
-  fetchData()}, []);
-
+  const fetchData = async () => {
+  const { data } = await axios.get(`/api/tickets?searchText=${search}`);
+  makeTickets(data)
+  }; fetchData()}, [search]);
 
 
 function handleHidden(e){
@@ -55,9 +53,10 @@ setLength(tickets.length)
 props.length(length)
 props.hidden(hidden)
   return (
-    <main>
+    <div>
+      <input id="searchInput" placeholder="Search tickets.." onChange={(event) => {setSearch(event.target.value)}}/>
       {list}
-    </main>
+    </div>
   );
 }
 

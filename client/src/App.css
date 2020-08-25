@@ -56,10 +56,33 @@ button:active{
     border: none;
 }
 
+button:focus {
+border: none;
+outline:0;
+}
+
 .results{
  font-style: italic;
 }
 
 .hiddenTicket{
 display: none;
+}
+
+#searchInput{
+width: 300px;
+margin-left: 40%;
+border-radius: 5px;
+background-color:rgb(255, 255, 255);
+font-size: 16px;
+border: 1px solid rgb(218, 218, 218);
+margin-top: 10px;
+outline:none;
+box-shadow: none;
+color:black;
+}
+
+input:focus::-webkit-input-placeholder
+{
+    color: white;
 }
