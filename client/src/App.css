@@ -6,6 +6,7 @@ background-image:url('header.png');
 color:#4d6d85;
 height: 150px;
 text-shadow: 5px 5px 1px rgb(153, 153, 153);
+white-space: nowrap;
 }
  
 .loading{
@@ -18,7 +19,7 @@ left:32%;
 }
 
 .showing{
-text-align: center;
+padding-left:45%;
 background: #4d6d85;
 padding-top:5px;
 padding-bottom:5px;
@@ -27,9 +28,8 @@ margin-bottom: 20px;
 }
 
 .input{
-margin-right:30%;
 margin-left:27%;
-min-width: 725px;
+width: 730px;
 background: rgba(90, 90, 90, 0.5);
 padding-bottom:10px;
 border: 1.5px dashed black;
