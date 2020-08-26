@@ -1,8 +1,5 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable no-undef */
-/* eslint-disable linebreak-style */
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable linebreak-style */
 
 import React, { useState } from 'react';
 import Ticket from './components/Ticket';

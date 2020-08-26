@@ -1,9 +1,7 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable linebreak-style */
 
 import Modal from 'react-modal';
 import React, { useState, useEffect } from 'react';
