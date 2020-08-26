@@ -127,7 +127,7 @@ function Ticket(props) {
       <div className="loading">
         {loading ? dots : ''}
       </div>
-      <div className="grid-container">
+      <div>
         {list}
       </div>
       <PopUp title={title} content={content} count={count} />
