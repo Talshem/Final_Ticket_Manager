@@ -91,7 +91,7 @@ function Ticket(props) {
             {Number(date.toISOString().substr(11, 2)) > 11 ? ' PM' : ' AM'}
           </p>
           <div className="labelGrid">
-            {x.map((e) => <span className="label">{e}</span>)}
+            {x.map((e) => <span key={e} className="label">{e}</span>)}
             {' '}
           </div>
         </div>
@@ -120,8 +120,12 @@ function Ticket(props) {
     setCount((e) => e + 1);
   }
 
-  props.length(length);
-  props.hidden(hidden);
+  useEffect(() => {
+    const passProps = () => {
+      props.length(length);
+      props.hidden(hidden);
+    }; passProps();
+  }, [length, hidden]);
 
   return (
     <div>
