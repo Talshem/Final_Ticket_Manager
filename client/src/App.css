@@ -196,3 +196,7 @@ input:focus::-webkit-input-placeholder
 {
     color: white;
 }
+
+.mark:hover{
+font-weight: 600;
+}

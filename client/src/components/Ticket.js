@@ -64,18 +64,19 @@ function Ticket(props) {
       }
 
       const background = (e.done ? Done : Undone);
-      const color = (e.done ? 'red' : 'green');
+      const color = (e.done ? '#444' : 'green');
 
       return (
         <div style={{ backgroundImage: `url(${background})` }} className="ticket" key={e.id} id={e.id}>
           <button className="hideTicketButton" onClick={() => handleHidden(e.id)}> Hide [x] </button>
           <p
+            className="mark"
             style={{
-              width: '80px', cursor: 'pointer', color, position: 'absolute', marginLeft: '550px', marginTop: '200px',
+              width: '110px', cursor: 'pointer', color, position: 'absolute', marginLeft: '535px', marginTop: '200px',
             }}
             onClick={() => markDone(e)}
           >
-            {e.done ? '✗ Undone' : '✓ Done'}
+            {e.done ? 'Mark unread' : 'Mark read'}
           </p>
           <h4 className="title">{e.title}</h4>
           <p className="content">{e.content}</p>
