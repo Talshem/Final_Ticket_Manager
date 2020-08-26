@@ -1,3 +1,3 @@
-![hide](./src/ui-testing-recording.gif)
+![test](./client/ui-testing-recording.gif)
 
 
