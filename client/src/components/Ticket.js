@@ -1,12 +1,5 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-shadow */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/button-has-type */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-filename-extension */
-
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PopUp from './PopUp';
@@ -32,16 +25,16 @@ function Ticket(props) {
   const markDone = async (e) => {
     if (!e.done) {
       await axios.post(`/api/tickets/${e.id}/done`);
-      setFresh((e) => e + 1);
+      setFresh((x) => x + 1);
     } else {
       await axios.post(`/api/tickets/${e.id}/undone`);
-      setFresh((e) => e + 1);
+      setFresh((x) => x + 1);
     }
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDots((dots) => `${dots} .`);
+      setDots((x) => `${x}.`);
     }, 200);
     return () => clearInterval(interval);
   }, []);
@@ -110,13 +103,13 @@ function Ticket(props) {
 
   function handleHidden(e) {
     document.getElementById(e).className = 'hiddenTicket';
-    setHidden((hidden) => hidden + 1);
+    setHidden((x) => x + 1);
   }
 
   function showMore(title, content) {
     setTitle(title);
     setContent(content);
-    setCount((e) => e + 1);
+    setCount((x) => x + 1);
   }
 
   useEffect(() => {

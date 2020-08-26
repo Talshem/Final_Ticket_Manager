@@ -1,7 +1,3 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
 /* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
 
