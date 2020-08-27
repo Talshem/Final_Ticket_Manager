@@ -34,15 +34,15 @@ function Ticket(props) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDots((x) => `${x}.`);
-    }, 200);
+      setDots((x) => `${x} .`);
+    }, 100);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setDots(() => 'Loading Tickets');
-    }, 800);
+    }, 400);
     return () => clearInterval(interval);
   }, []);
 
