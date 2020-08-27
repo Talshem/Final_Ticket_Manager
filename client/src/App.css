@@ -18,8 +18,7 @@
 .loading {
   font-style: italic;
   color: #222;
-  position: absolute;
-  top: 350px;
+  position: relative;
   font-size: 80px;
   left: 350px;
 }
