@@ -68,7 +68,7 @@
   height: 225px;
   color: #20445E;
   padding: 1px 0px 0px 35px;
-  margin: 20px -110px -30px -20px;
+  margin: 20px -110px -40px -20px;
   transition: 0.5s;
 }
 
@@ -92,6 +92,8 @@
 }
 
 .title {
+  line-height:1.2;
+  height:20px;
   width: 495px;
 }
 
