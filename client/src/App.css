@@ -4,7 +4,7 @@
   background-image: url("header.png");
   color: #4d6d85;
   height: 150px;
-  text-shadow: 5px 5px 1px rgb(153, 153, 153);
+  text-shadow: 3px 3px 1px white;
   white-space: nowrap;
 }
 
