@@ -4,8 +4,15 @@
   background-image: url("header.png");
   color: #4d6d85;
   height: 150px;
-  text-shadow: 5px 5px 1px rgb(153, 153, 153);
+  text-shadow: 3px 3px 1px white;
   white-space: nowrap;
+}
+
+.footer{
+  background:#4d6d85;
+  height: 250px;
+  border: 1px solid black;
+  margin-top:100px;
 }
 
 .loading {
@@ -57,6 +64,7 @@
     margin-left: auto;
     margin-right: auto;
   width:100%;
+margin-bottom:50px;
 }
 
 .ticket {
@@ -180,7 +188,7 @@ button:focus {
 
 #searchInput {
   width: 500px;
-  margin-left: 110px;
+  margin-left: 115px;
   height: 30px;
   border-radius: 5px;
   background-color: rgb(255, 255, 255);

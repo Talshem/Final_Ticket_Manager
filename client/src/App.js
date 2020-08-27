@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Ticket from './components/Ticket';
 import Counter from './components/Counter';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Header />
       <Counter length={length} hidden={hidden} reset={() => resetHidden()} />
       <Ticket length={(e) => handleLength(e)} hidden={(e) => handleHidden(e)} reset={reset} />
+      <Footer />
     </main>
   );
 }
