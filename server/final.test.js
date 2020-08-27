@@ -38,6 +38,7 @@ describe(projectName, () => {
     expect(body[0].id).toBe('78d09b01-6ca0-5746-82a4-9e02db81552a')
   });
 
+/*
   test('Can mark ticket as done and undone', async () => {
     const currentState = data[0].done;
     const { body } = await request(app)
@@ -60,4 +61,7 @@ describe(projectName, () => {
     const updatedData2 = require('./data.json');
     expect(updatedData2[0].done).toBe(currentState);
   });
+
+*/
 })
+
