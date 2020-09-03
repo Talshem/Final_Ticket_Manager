@@ -1,6 +1,6 @@
 # My Ticket Manager
 
-![test](readme-files/png.png)
+![image](readme-files/png.png)
 
 -----------------
 ### Used app.post -
