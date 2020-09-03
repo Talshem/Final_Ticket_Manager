@@ -55,6 +55,29 @@ app.post('/api/tickets/:ticketid/done', (req, res) => {
   }
 });
 
+app.post('/api/tickets/:ticketid/hide', (req, res) => {
+  let flag = true;
+  for (const ticket of data) {
+    if (ticket.id === req.params.ticketid) {
+      ticket.hide = true;
+      res.send(ticket);
+      flag = false;
+    }
+  }
+  if (flag) {
+    res.send('There is no ticket with the corresponding ID');
+  }
+});
+
+app.post('/api/tickets/unhide', (req, res) => {
+  for (const ticket of data) {
+    if (ticket.hide) {
+      ticket.hide = false;
+    }
+  }
+  res.send(data);
+});
+
 app.post('/api/tickets/:ticketid/undone', (req, res) => {
   let flag = true;
   for (const ticket of data) {

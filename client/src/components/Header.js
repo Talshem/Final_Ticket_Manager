@@ -2,7 +2,14 @@ import React from 'react';
 
 function Header() {
   return (
-    <div className="header"> Find Your Guide.</div>
+    <div className="header">
+
+      <div className="headerText">
+        Find Your Guide.
+        <hr />
+      </div>
+
+    </div>
   );
 }
 

@@ -1,4 +1,6 @@
+/* eslint-disable quotes */
 /* eslint-disable no-plusplus */
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 function Counter(props) {
@@ -10,13 +12,10 @@ function Counter(props) {
     } hiddenUpdate();
   }, [props.hidden]);
 
-  function resetDisplay() {
-    const elements = document.getElementsByClassName('hiddenTicket');
-    for (let i = elements.length - 1; i >= 0; i--) {
-      elements[i].className = 'ticket';
-    }
+  const resetDisplay = async () => {
+    await axios.post(`/api/tickets/unhide`);
     props.reset();
-  }
+  };
 
   const singular = ' hidden ticket - ';
   const plural = ' hidden tickets - ';
