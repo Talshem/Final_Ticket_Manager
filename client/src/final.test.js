@@ -101,8 +101,10 @@ describe(projectName, () => {
     await page.hover('.ticket');
     await page.click('.ticket .hideTicketButton');
 
+    
     let elementsAfterHide = await page.$$('.ticket');
     expect(elementsAfterHide.length).toBe(mockData.length - 1);
+
 
     let hideTicketsCounter = await page.$('#hideTicketsCounter');
     let currentCounter = await (await hideTicketsCounter.getProperty('innerText')).jsonValue();
