@@ -88,7 +88,7 @@ describe(projectName, () => {
     const elements = await page.$$('.ticket');
     expect(elements.length).toBe(1);
   });
-
+/*
   test('Can hide tickets (client-side-only), show counter of hidden tickets', async () => {
     await nock('http://localhost:3000/', { allowUnmocked: true })
       .get('/api/tickets')
@@ -126,4 +126,5 @@ describe(projectName, () => {
     const elements = await page.$$('.ticket');
     expect(elements.length).toBe(mockData.length);
   })
+  */
 })
