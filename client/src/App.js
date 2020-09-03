@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-filename-extension */
-
 import React, { useState } from 'react';
 import Ticket from './components/Ticket';
 import Counter from './components/Counter';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 function App() {
   const [length, setLength] = useState(0);

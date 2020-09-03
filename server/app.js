@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable linebreak-style */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable linebreak-style */
@@ -14,14 +15,9 @@ const file = fs.readFileSync('./data.json');
 const data = JSON.parse(file);
 
 app.get('/api/tickets', (req, res) => {
-  const filter = [];
-  const searchText = req.query;
-  if (searchText.searchText) {
-    for (const ticket of data) {
-      if (ticket.title.toUpperCase().includes(searchText.searchText.toUpperCase())) {
-        filter.push(ticket);
-      }
-    }
+  const { searchText } = req.query;
+  if (searchText) {
+    const filter = data.filter((ticket) => ticket.title.toUpperCase().includes(searchText.toUpperCase()));
     res.send(filter);
   } else {
     res.send(data);
@@ -45,7 +41,11 @@ app.post('/api/tickets/:ticketid/done', (req, res) => {
   let flag = true;
   for (const ticket of data) {
     if (ticket.id === req.params.ticketid) {
-      ticket.done = true;
+      if (!ticket.done) {
+        ticket.done = true;
+      } else {
+        ticket.done = false;
+      }
       res.send(ticket);
       flag = false;
     }
@@ -76,20 +76,6 @@ app.post('/api/tickets/unhide', (req, res) => {
     }
   }
   res.send(data);
-});
-
-app.post('/api/tickets/:ticketid/undone', (req, res) => {
-  let flag = true;
-  for (const ticket of data) {
-    if (ticket.id === req.params.ticketid) {
-      ticket.done = false;
-      res.send(ticket);
-      flag = false;
-    }
-  }
-  if (flag) {
-    res.send('There is no ticket with the corresponding ID');
-  }
 });
 
 app.use(bodyParser.json());
