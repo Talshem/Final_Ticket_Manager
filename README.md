@@ -1,6 +1,6 @@
 # My Ticket Manager
 
-![test](./client/ui-testing-recording.gif)
+![test](png.png)
 
 -----------------
 ### Used app.post -
