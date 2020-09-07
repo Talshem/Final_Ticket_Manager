@@ -104,8 +104,19 @@ function Ticket(props) {
   };
 
   const markDone = async (e) => {
-    await axios.post(`/api/tickets/${e.id}/done`);
-    setFresh((x) => x + 1);
+    await axios.post(`/api/tickets/${e.id}/done`)
+      .then(() => {
+        e.done = !e.done;
+        if (e.done) {
+          document.getElementById(e.id).style.background = '#D0D0CE';
+          document.getElementById(`mark${e.id}`).style.color = '#444';
+          document.getElementById(`mark${e.id}`).textContent = 'Mark unread';
+        } else {
+          document.getElementById(e.id).style.background = 'rgb(223, 233, 175)';
+          document.getElementById(`mark${e.id}`).style.color = 'green';
+          document.getElementById(`mark${e.id}`).textContent = 'Mark read';
+        }
+      });
   };
 
   useEffect(() => {
@@ -136,6 +147,7 @@ function Ticket(props) {
           <button className="hideTicketButton" onClick={() => markHide(e)}> Hide [x] </button>
           <p
             className="mark"
+            id={`mark${e.id}`}
             style={{
               width: '110px', cursor: 'pointer', color, position: 'absolute', marginLeft: '555px', marginTop: '200px',
             }}
@@ -193,7 +205,7 @@ function Ticket(props) {
   }
 
   return (
-    <div>
+    <div className="appBody">
       <div className="input">
         <input id="searchInput" placeholder="Search tickets..." onChange={(event) => { setSearch(event.target.value); }} />
       </div>
@@ -257,7 +269,6 @@ function Ticket(props) {
       </SideNav>
     </div>
   );
-
 }
 
 export default Ticket;
