@@ -1,0 +1,13 @@
+
+body {
+background: url("tapet.png");
+margin-left: 54px;
+font-family: "Avenir Light";
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+monospace;
+}
